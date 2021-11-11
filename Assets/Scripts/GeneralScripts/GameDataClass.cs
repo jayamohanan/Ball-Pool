@@ -8,7 +8,6 @@ public class GameDataClass : MonoBehaviour
     public static GameDataClass Instance;
     public Material[] mats;
     public int lessFactor = 5;
-    public Transform debug;
     void Awake()
     {
         if(Instance == null)

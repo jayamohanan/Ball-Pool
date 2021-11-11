@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour
     private Vector3 cullCubePosFrontView = new Vector3(-21.7f, -14.6f, 47f);
     private Vector3 cullCubeRotfrontView = Vector3.up * -90;
 
-    private SetMuls setMuls;
+    private LevelGenerator levelGenerator;
     private HeadManager headManager;
     public CameraCullScript cameraCullScript;
     private GameManager gameManager;
@@ -42,7 +42,7 @@ public class CameraFollow : MonoBehaviour
     private Vector3 finalRotate = new Vector3(19,-90,0);
 
 
-    //private SetMuls setMuls;
+    //private LevelGenerator levelGenerator;
     //private HeadManager headManager;
     public bool printSuccessType;
     private float initialY;
@@ -58,7 +58,7 @@ public class CameraFollow : MonoBehaviour
 #endif
         Refs refs = FindObjectOfType<Refs>();
         gameManager = refs.gameManager;
-        setMuls = refs.setMuls;
+        levelGenerator = refs.levelGenerator;
         headManager = refs.headManager;
         headScript = refs.headScript;
 
@@ -76,7 +76,7 @@ public class CameraFollow : MonoBehaviour
         initialRotation = transform.rotation;
         cam = GetComponent<Camera>();
         initilFov = cam.fieldOfView;
-        setMuls.SetBasket += OnBasketSet;
+        levelGenerator.SetBasket += OnBasketSet;
 
         gameManager.LevelStartedEvent += OnLevelLoaded;
         gameManager.LevelOverEvent += OnLevelOver;
@@ -89,7 +89,7 @@ public class CameraFollow : MonoBehaviour
     {
         gameManager.LevelStartedEvent -= OnLevelLoaded;
         gameManager.LevelOverEvent -= OnLevelOver;
-        setMuls.SetBasket -= OnBasketSet;
+        levelGenerator.SetBasket -= OnBasketSet;
         headManager.PlayerMoved -= OnPlayerMoved;
         headScript.PathEndReached -= MoveToFinalPosition;
 
@@ -105,7 +105,7 @@ public class CameraFollow : MonoBehaviour
         //startPos.y = 14.5f;
         transform.position = startPos;
         endPos =startPos;
-        endPos.z = setMuls.lastPos.z - offset.z;
+        endPos.z = levelGenerator.lastPos.z - offset.z;
         endPos.y = -tanAngle * (endPos.z - platformStartPoint) + cameraHeightFromPlatform;
         zDist = (endPos.z - startPos.z);
     }

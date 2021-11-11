@@ -36,7 +36,7 @@ public class BigPitScript : MonoBehaviour
     public Transform rightSlant;
     public Transform middleSlant;
 
-    SetMuls setMuls;
+    LevelGenerator levelGenerator;
     HeadScript headScript;
     //private GameManager gameManager;
     public GameObject[] bottomPlates;
@@ -55,7 +55,7 @@ public class BigPitScript : MonoBehaviour
     {
         Refs refs = FindObjectOfType<Refs>();
         gameManager = FindObjectOfType<GameManager>();
-        setMuls = refs.setMuls;
+        levelGenerator = refs.levelGenerator;
         headScript = refs.headScript;
         //headScript.lessFactor = lessFactor;
         //gameManager = refs.gameManager;
@@ -69,13 +69,13 @@ public class BigPitScript : MonoBehaviour
     }
     private void OnEnable()
     {
-        setMuls.SetBasket += OnBasketSet;
+        levelGenerator.SetBasket += OnBasketSet;
         bts.firstBallEvent += OnFirstBallMet;
         cameraFollow.CameraRotated += OnCameraRotated;//
     }
     private void OnDisable()
     {
-        setMuls.SetBasket -= OnBasketSet;
+        levelGenerator.SetBasket -= OnBasketSet;
         bts.firstBallEvent -= OnFirstBallMet;
         cameraFollow.CameraRotated -= OnCameraRotated;//
 
@@ -141,7 +141,7 @@ public class BigPitScript : MonoBehaviour
     private void OnFirstBallMet()
     {
         //print("OnFirstBallMet ");
-        //UIManager.Instance.InitialiseStarCanvas(setMuls.totalCount, collectedCount);
+        //UIManager.Instance.InitialiseStarCanvas(levelGenerator.totalCount, collectedCount);
         //EnableNextBend();
     }
 
@@ -172,7 +172,7 @@ public class BigPitScript : MonoBehaviour
             //if(gameManager.currentLevel<4)
             //    totalCount = 300;
             //else
-            //    totalCount = setMuls.totalCount;
+            //    totalCount = levelGenerator.totalCount;
             if (i!=2)
             wotArray[i].totalCount = totalCount;
             else
@@ -244,7 +244,7 @@ public class BigPitScript : MonoBehaviour
         //if (gameManager.currentLevel < 3)
         //    maxValue = 300;
         //else
-        //maxValue = setMuls.totalCount;
+        //maxValue = levelGenerator.totalCount;
         //print("maxValue " + maxValue);
         for (int i = 0; i < 3; i++)
         {//
@@ -308,6 +308,6 @@ public class BigPitScript : MonoBehaviour
         //else if (gameManager.currentLevel == 2)
         //    return 600;
         //else
-            return setMuls.totalCount;
+            return levelGenerator.totalCount;
     }
 }

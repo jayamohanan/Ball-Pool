@@ -7,7 +7,7 @@ public class BottomTriggerScript : MonoBehaviour
 {
     public int collectedCount;
     private GameManager gameManager;
-    private SetMuls setMuls;
+    private LevelGenerator levelGenerator;
     private bool firstBall;
     public event System.Action firstBallEvent;
     private HeadScript headScript;
@@ -16,7 +16,7 @@ public class BottomTriggerScript : MonoBehaviour
         Refs refs = FindObjectOfType<Refs>();
         gameManager = refs.gameManager;
         headScript = refs.headScript;//
-        setMuls = refs.setMuls;//
+        levelGenerator = refs.levelGenerator;//
 
     }
     int count1 = 0;
@@ -36,7 +36,7 @@ public class BottomTriggerScript : MonoBehaviour
                     firstBall = true;
                     firstBallEvent?.Invoke();
                 }
-                if(collectedCount< setMuls.totalCount - 50)
+                if(collectedCount< levelGenerator.totalCount - 50)
                 {
                     if (count1 % soundPlayCycle == 0)
                     {

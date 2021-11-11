@@ -9,7 +9,7 @@ public class Refs : MonoBehaviour
     public CameraCullScript cameraCullScript;
     public BigPitScript bigPitScript;
     public BottomTriggerScript bottomTriggerScript;
-    public SetMuls setMuls;
+    public LevelGenerator levelGenerator;
     public HeadManager headManager;
     public HeadScript headScript;
 }

@@ -10,7 +10,7 @@ public class HeadScript : MonoBehaviour
     [HideInInspector] public int lessFactor;
     //private CameraFollow cameraFollow;
     //private BottomTriggerScript bottomTriggerScript;
-    private SetMuls setMuls;
+    private LevelGenerator levelGenerator;
     public HeadManager headManager;
 
     public CharacterController controller;
@@ -21,8 +21,8 @@ public class HeadScript : MonoBehaviour
     private int dropDivisions = 5;
     public event System.Action PathEndReached;
     private bool isRigidbody;
-    /*[HideInInspector] */public int totalBallsFallen = 0;
-    /*[HideInInspector]*/ public int totalBallsFallenActual = 0;
+    [HideInInspector] public int totalBallsFallen = 0;
+    [HideInInspector] public int totalBallsFallenActual = 0;
     //public ParticleSystem smokeRing;
     public ParticleSystem cloud;
     private float levelEndZ = float.MaxValue;
@@ -49,18 +49,18 @@ public class HeadScript : MonoBehaviour
         gameManager = refs.gameManager;
         //bottomTriggerScript =refs.bottomTriggerScript;
         //cameraFollow =refs.cameraFollow;
-        setMuls = refs.setMuls;
+        levelGenerator = refs.levelGenerator;
         cameraCullScript = refs.cameraCullScript;
         rb = GetComponent<Rigidbody>();
         smallBallLayer = LayerMask.NameToLayer("SmallBall");
     }
     private void OnEnable()
     {
-        setMuls.SetBasket += OnBasketSet;
+        levelGenerator.SetBasket += OnBasketSet;
     }
     private void OnDisable()
     {
-        setMuls.SetBasket -= OnBasketSet;
+        levelGenerator.SetBasket -= OnBasketSet;
     }
     private void Start()
     {
@@ -70,7 +70,7 @@ public class HeadScript : MonoBehaviour
     }
     private void OnBasketSet()
     {
-        levelEndZ = setMuls.lastPos.z;
+        levelEndZ = levelGenerator.lastPos.z;
     }
 
     private void Update()
@@ -282,7 +282,7 @@ public class HeadScript : MonoBehaviour
         //sbdArray = new SmallBallData[mulCount][];
         this.maxValueArray = maxValueArray;
         MeshRenderer mr;
-        totalCount = setMuls.totalCount;
+        totalCount = levelGenerator.totalCount;
         //smallBallDataArray = new SmallBallData[totalCount];
         smallBallDataQueue = new Queue<SmallBallData>();
         for (int i = 0; i < totalCount; i++)

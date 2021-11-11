@@ -16,7 +16,7 @@ using UnityEngine;
 
 public class CameraCullScript : MonoBehaviour
 {
-    SetMuls setMuls;
+    LevelGenerator levelGenerator;
     private BottomTriggerScript bottomTriggerScript;
     [SerializeField] private CameraFollow cameraFollow;
     private HeadScript headScript;
@@ -25,7 +25,7 @@ public class CameraCullScript : MonoBehaviour
     private void Awake()
     {
         Refs refs = FindObjectOfType<Refs>(); 
-        setMuls= refs.setMuls;
+        levelGenerator= refs.levelGenerator;
         headScript= refs.headScript;
         bottomTriggerScript = refs.bottomTriggerScript;
 #if !UNITY_EDITOR
@@ -52,12 +52,12 @@ test = false;
     }
     private void OnEnable()
     {
-        setMuls.SetBasket += OnBasketSet;
+        levelGenerator.SetBasket += OnBasketSet;
         cameraFollow.CameraRotated += OnCameraRotated;
     }
     private void OnDisable()
     {
-        setMuls.SetBasket -= OnBasketSet;
+        levelGenerator.SetBasket -= OnBasketSet;
         cameraFollow.CameraRotated -= OnCameraRotated;
     }
     public bool test;
@@ -114,7 +114,7 @@ test = false;
     //private int lastPosArrayLength;
     private void OnBasketSet()
     {
-        lastPositions = setMuls.lastPositions;
+        lastPositions = levelGenerator.lastPositions;
         //lastPosArrayLength = lastPositions.Length-1;
     }
     //private Vector3 GetPosition()
@@ -166,7 +166,7 @@ test = false;
         {
             int minCheckPoint = turnOnCount / 10;
             int checkPoint = minCheckPoint;
-            Vector3 platformDirection = setMuls.platformDirection;
+            Vector3 platformDirection = levelGenerator.platformDirection;
             for (int i = 0; i < turnOnCount; i++)
             {
                 if (culledObjs[i] != null)

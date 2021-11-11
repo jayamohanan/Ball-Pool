@@ -166,7 +166,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.Axis.FlappyBalls
   buildNumber: {}
-  AndroidBundleVersionCode: 23
+  AndroidBundleVersionCode: 24
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 30
   AndroidPreferredInstallLocation: 1

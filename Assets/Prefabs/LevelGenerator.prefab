@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4768638390068791650}
   - component: {fileID: 4768638390068791651}
   m_Layer: 0
-  m_Name: SetMuls
+  m_Name: LevelGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   greenRed: 0
-  straightOnly: 0
+  straightOnly: 1
   slantedOnly: 0
   baseGap: 7
   forwardGap: 17

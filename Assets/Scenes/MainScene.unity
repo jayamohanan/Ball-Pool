@@ -156,7 +156,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3aa7b37e0eb86e149a8c2e2533b0a954, type: 2}
   - {fileID: 2100000, guid: a810fe8fcb72c8a4ab2ab43fecf0a736, type: 2}
   lessFactor: 5
-  debug: {fileID: 0}
   localPositions: []
 --- !u!4 &34211086
 Transform:
@@ -576,7 +575,7 @@ PrefabInstance:
     - target: {fileID: 8365013258389028529, guid: a38c8d0197b65ab41ae7325fe1a37d57,
         type: 3}
       propertyPath: m_Name
-      value: Cloud
+      value: Smoke
       objectReference: {fileID: 0}
     - target: {fileID: 8365013258388781339, guid: a38c8d0197b65ab41ae7325fe1a37d57,
         type: 3}
@@ -1202,7 +1201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1218270494}
   m_Layer: 0
-  m_Name: Clouds
+  m_Name: CloudsBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1432,7 +1431,7 @@ MonoBehaviour:
   cameraCullScript: {fileID: 1876816672}
   bigPitScript: {fileID: 1987963915}
   bottomTriggerScript: {fileID: 374189181}
-  setMuls: {fileID: 2094794908}
+  levelGenerator: {fileID: 2094794908}
   headManager: {fileID: 305147036}
   headScript: {fileID: 305147038}
 --- !u!4 &1618754690
@@ -1460,6 +1459,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742764259813203474, guid: 4bb66e114dc83404ba0c504abbb77c0a,
+        type: 3}
+      propertyPath: level
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5742764259813203474, guid: 4bb66e114dc83404ba0c504abbb77c0a,
         type: 3}
@@ -2340,7 +2344,7 @@ PrefabInstance:
     - target: {fileID: 4768638390068791652, guid: 050d0f03fb54d134d815b4b8c41b9d9b,
         type: 3}
       propertyPath: m_Name
-      value: SetMuls
+      value: LevelGenerator
       objectReference: {fileID: 0}
     - target: {fileID: 4768638390068791651, guid: 050d0f03fb54d134d815b4b8c41b9d9b,
         type: 3}
@@ -2352,6 +2356,11 @@ PrefabInstance:
       propertyPath: basket
       value: 
       objectReference: {fileID: 47684643}
+    - target: {fileID: 4768638390068791651, guid: 050d0f03fb54d134d815b4b8c41b9d9b,
+        type: 3}
+      propertyPath: straightOnly
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4768638390068791650, guid: 050d0f03fb54d134d815b4b8c41b9d9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2419,7 +2428,7 @@ PrefabInstance:
     - target: {fileID: 6389101815442122930, guid: f5c6e003409866846ae70fe49e6c6ccf,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: MainPlayerBall
       objectReference: {fileID: 0}
     - target: {fileID: 6389101815442122937, guid: f5c6e003409866846ae70fe49e6c6ccf,
         type: 3}
