@@ -280,7 +280,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 6.4285e-40, z: -1.14e-43, w: -1.49e-43}
+  m_BoundingSphereOverride: {x: 9.1835e-41, y: 0, z: 0, w: 9.1835e-41}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2332,6 +2332,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2680335911507202045, guid: 9d290704cb63c5e4cb8608543373e6f6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f84264a6b68c7244a527aad13572185, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d290704cb63c5e4cb8608543373e6f6, type: 3}
 --- !u!1001 &4768638390407741951
