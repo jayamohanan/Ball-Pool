@@ -7,21 +7,23 @@ public class HeadManager : MonoBehaviour
 {
     private GameManager gameManager;
     private CameraFollow cameraFollow;
+    [Tooltip("Speed of control ball in forward direction")]
+    public float currentPlayerSpeed = 12.5f;
+    [Tooltip("Speed of control ball in vertical direction")]
+    public float gravityValue = -50;
 
+    [Tooltip("currentPlayerSpeed = 9f, gravityValue = -25")]
     public bool slowBall = true;
     public bool seperateCutSound = true;
     [HideInInspector]  public bool headGrounded;
     public CharacterController headController;
     //private Vector3 headVelocity;
     [HideInInspector] public Transform target;
-    private float currentPlayerSpeedInitial = 10;
-    [HideInInspector] public float currentPlayerSpeed = 12;
-    public float swipeSpeed = 0.5f;
-    public bool useEditorSwipeSpeed;
+    //public float swipeSpeed = 0.5f;
+    //public bool useEditorSwipeSpeed;
     public float editorSwipeSpeed = 0.5f;
 
     [HideInInspector] public Vector3 headMove;
-    private float gravityValue = -50;
     public float jumpHeight = 8f;
     public Transform path;
     private Vector3 initialPosition;
@@ -39,19 +41,18 @@ public class HeadManager : MonoBehaviour
     public event System.Action PlayerMoved;
     void Awake()
     {
-        currentPlayerSpeed = 12.5f;
 #if UNITY_EDITOR
         if (slowBall)
         {
-            currentPlayerSpeed = 7f;
-            gravityValue = -20;
+            currentPlayerSpeed = 9f;
+            gravityValue = -25;
         }
 #endif
         //currentPlayerSpeed = 10;
-#if UNITY_EDITOR
-        if (useEditorSwipeSpeed)
-            swipeSpeed = editorSwipeSpeed;
-#endif        
+//#if UNITY_EDITOR
+//        if (useEditorSwipeSpeed)
+//            swipeSpeed = editorSwipeSpeed;
+//#endif        
         Input.multiTouchEnabled = false;
         Refs refs = FindObjectOfType<Refs>();
         cameraFollow =refs.cameraFollow;
@@ -90,14 +91,6 @@ public class HeadManager : MonoBehaviour
     }
     private void OnLevelStart()//
     {
-        //if (gameManager.currentLevel < 100)
-        //{
-        //    currentPlayerSpeed = currentPlayerSpeedInitial + (gameManager.currentLevel / 20) * 0.2f;
-        //}
-        //else
-        //{
-        //    currentPlayerSpeed = 11;
-        //}
         state = State.WaitingToStart;
         headTransform.position = headPositionInit;
         StopAllCoroutines();
