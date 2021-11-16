@@ -406,7 +406,6 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator ShowCollectedCount(int collectedCount)
     {
-        print("a");
         collectedCountText.text = collectedCount.ToString();
         collectedCountText.gameObject.SetActive(true);
         yield return collectedCountWaitTime;

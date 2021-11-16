@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
+    public BallCount ballCount;
     private GameManager gameManager;
     private HeadScript headScript;
 
-    public bool greenRed;
+    [HideInInspector] public bool greenRed;
     public bool straightOnly;
     public bool slantedOnly;
     public float baseGap = 10;
@@ -104,19 +105,39 @@ public class LevelGenerator : MonoBehaviour
         int[] a = new int[count];
         if (count == 10)
         {
-            int[] b = GenerateRandomNumbers(3, 15);
+            int[] sum600 = new int[3] {15, 20,60 };
+            int[] sum1000 = new int[3] {25, 40,80 };
+            int[] sum1500 = new int[3] {25, 100,150 };
+            int[] sum = new int[3];
+            if(ballCount == BallCount.SixHundred)
+            {
+                sum = sum600;
+            }
+            else if(ballCount == BallCount.Thousand)
+            {
+                sum = sum1000;
+
+            }
+            else if(ballCount == BallCount.FifteenHundred)
+            {
+                sum = sum1500;
+
+            }
+
+            //if(ballCount == 600)
+            int[] b = GenerateRandomNumbers(3, /*15*/sum[0]);
             for (int i = 0; i < b.Length; i++)
             {
                 a[i] = b[i];
             }
             a[3] = -4;
-            b = GenerateRandomNumbers(2, 20);
+            b = GenerateRandomNumbers(2, /*20*/sum[1]);
             for (int i = 0; i < 2; i++)
             {
                 a[4 + i] = b[i];
             }
             a[6] = -3;
-            b = GenerateRandomNumbers(2, 60);
+            b = GenerateRandomNumbers(2,/* 60*/sum[2]);
             for (int i = 0; i < 2; i++)
             {
                 a[7 + i] = b[i];
@@ -975,4 +996,9 @@ public class LevelGenerator : MonoBehaviour
         else
             return Vector3.zero;
     }
+    public enum BallCount
+    {
+        SixHundred, Thousand, FifteenHundred
+    }
 }
+

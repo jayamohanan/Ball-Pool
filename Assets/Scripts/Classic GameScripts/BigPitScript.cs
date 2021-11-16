@@ -14,7 +14,7 @@ public class BigPitScript : MonoBehaviour
     public ParticleSystem goldRainConfetti;
 
     public float frontX = 7;
-    public float xWidth = 7;
+    public float xWidth = 7;//
     //private float backX;//frontX -xWidth 
 
     public float leftZ;

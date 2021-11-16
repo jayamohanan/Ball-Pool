@@ -13,7 +13,6 @@ public class LoadGame : MonoBehaviour
         }
         else
         {
-            //Handle FB.Init
             FB.Init(() =>
             {
                 FB.ActivateApp();
@@ -38,25 +37,31 @@ public class LoadGame : MonoBehaviour
             yield return null;
         }
     }
-    void OnApplicationPause(bool pauseStatus)
-    {
-        // Check the pauseStatus to see if we are in the foreground
-        // or background
-        if (!pauseStatus)
-        {
-            //app resume
-            if (FB.IsInitialized)
-            {
-                FB.ActivateApp();
-            }
-            else
-            {
-                //Handle FB.Init
-                FB.Init(() =>
-                {
-                    FB.ActivateApp();
-                });
-            }
-        }
-    }
+    //void OnApplicationPause(bool pauseStatus)
+    //{
+    //    print("pause "+ Time.frameCount);
+    //    print("f: OnApplicationPause");
+    //    print("pauseStatus "+ pauseStatus);
+    //    // Check the pauseStatus to see if we are in the foreground
+    //    // or background
+    //    if (!pauseStatus)
+    //    {
+    //        //app resume
+    //        if (FB.IsInitialized)
+    //        {
+    //        print("OnApplicationPause already IsInitialized so activating");
+    //            FB.ActivateApp();
+    //        }
+    //        else
+    //        {
+    //            print("OnApplicationPause not initialized so initalising and then activating");
+
+    //            //Handle FB.Init
+    //            FB.Init(() =>
+    //            {
+    //                FB.ActivateApp();
+    //            });
+    //        }
+    //    }
+    //}
 }
