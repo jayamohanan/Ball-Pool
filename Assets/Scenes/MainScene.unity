@@ -156,7 +156,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3aa7b37e0eb86e149a8c2e2533b0a954, type: 2}
   - {fileID: 2100000, guid: a810fe8fcb72c8a4ab2ab43fecf0a736, type: 2}
   useSingleColor: 1
-  ballColor: {r: 0, g: 0, b: 0, a: 0}
+  ballColor: {r: 0.11654006, g: 0.735849, b: 0.024296915, a: 0}
   lessFactor: 5
   localPositions: []
 --- !u!4 &34211086
@@ -2600,6 +2600,11 @@ PrefabInstance:
       propertyPath: cloud
       value: 
       objectReference: {fileID: 1070639192}
+    - target: {fileID: 6389101815442122936, guid: f5c6e003409866846ae70fe49e6c6ccf,
+        type: 3}
+      propertyPath: playerBallControlScript
+      value: 
+      objectReference: {fileID: 305147036}
     - target: {fileID: 6389101815442122943, guid: f5c6e003409866846ae70fe49e6c6ccf,
         type: 3}
       propertyPath: m_LocalPosition.x

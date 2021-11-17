@@ -233,7 +233,6 @@ public class GameManager : MonoBehaviour//
     }
     private void OnApplicationQuit()
     {
-        print("OnApplicationQuit ");
 #if (UNITY_EDITOR)
         //if gamewon currentlevel will be incremented before this
         PlayerPrefs.SetInt("CurrentLevel", (currentLevel));

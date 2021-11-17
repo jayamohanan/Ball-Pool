@@ -41,6 +41,7 @@ public class PlayerBallScript : MonoBehaviour
     private string smallBall2String = "SmallBall2";// after hitting platform
     private CameraCullScript cameraCullScript;
     public GameObject smokePrefab;
+    private Transform ballParent;
 
     void Awake()
     {
@@ -75,10 +76,6 @@ public class PlayerBallScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            print(ballParent.childCount);
-        }
         //isGrounded = controller.isGrounded;
 
         if (!gameManager.gameLost)
@@ -275,8 +272,6 @@ public class PlayerBallScript : MonoBehaviour
     int totalCount;
     public void SetPool(int[] maxValueArray, int mulCount, int[] maxValueColorIndexArray)//To be called from SetMul
     {
-        print("to "+Time.frameCount);
-        //return;
         SmallBallData sb = new SmallBallData();
         GameObject ballInstantiated;
 
@@ -347,7 +342,6 @@ public class PlayerBallScript : MonoBehaviour
 //            }
         //}
     }
-    public Transform ballParent;
 
     private struct SmallBallData
     {
