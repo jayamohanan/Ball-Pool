@@ -22,7 +22,7 @@ public class MulMove : MonoBehaviour
     {
         //123 statiionary
         if (gameManager.currentLevel < 5)
-            speed = 4;
+            speed = 0;
         else if (gameManager.currentLevel < 10)
             speed = 6;
         else if (gameManager.currentLevel < 15)

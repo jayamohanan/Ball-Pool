@@ -2591,7 +2591,7 @@ PrefabInstance:
     - target: {fileID: 6389101815442122937, guid: f5c6e003409866846ae70fe49e6c6ccf,
         type: 3}
       propertyPath: slowBall
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6389101815442122936, guid: f5c6e003409866846ae70fe49e6c6ccf,
         type: 3}

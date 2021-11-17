@@ -8,6 +8,7 @@ public class LevelGenerator : MonoBehaviour
     private HeadScript headScript;
 
     [HideInInspector] public bool greenRed;
+    [Tooltip("By defalut level arranges different types of gates, check this to make every gate simple, straight, two option gates. This is applicable for all gates except multipliers. Multipliers will always be moving one")]
     public bool straightOnly;
     public bool slantedOnly;
     public float baseGap = 10;
