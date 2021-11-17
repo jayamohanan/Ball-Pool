@@ -155,6 +155,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5c613129855d75744b8c23fd64c1df73, type: 2}
   - {fileID: 2100000, guid: 3aa7b37e0eb86e149a8c2e2533b0a954, type: 2}
   - {fileID: 2100000, guid: a810fe8fcb72c8a4ab2ab43fecf0a736, type: 2}
+  useSingleColor: 1
+  ballColor: {r: 0, g: 0, b: 0, a: 0}
   lessFactor: 5
   localPositions: []
 --- !u!4 &34211086
