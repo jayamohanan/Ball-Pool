@@ -6,7 +6,7 @@ using UnityEditor;
 public class PlatformScript : MonoBehaviour
 {
     GameManager gameManager;
-    HeadScript headScript;
+    PlayerBallScript playerBallScript;
 
     public int platformFellCount = 0;
     bool optimizeSound;
@@ -16,15 +16,15 @@ public class PlatformScript : MonoBehaviour
     {
         Refs refs = FindObjectOfType<Refs>();
         gameManager =refs.gameManager;
-        headScript = refs.headScript;
+        playerBallScript = refs.playerBallScript;
     }
     private void OnEnable()
     {
-        headScript.BallsDropped += ResetSoundOpt;
+        playerBallScript.BallsDropped += ResetSoundOpt;
     }
     private void OnDisable()
     {
-        headScript.BallsDropped -= ResetSoundOpt;
+        playerBallScript.BallsDropped -= ResetSoundOpt;
     }
     int count1 = 0;
     private string smallBall1String = "SmallBall1";

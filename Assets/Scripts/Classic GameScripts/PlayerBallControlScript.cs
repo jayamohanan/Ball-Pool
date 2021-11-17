@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class HeadManager : MonoBehaviour
+public class PlayerBallControlScript : MonoBehaviour
 {
     private GameManager gameManager;
     private CameraFollow cameraFollow;

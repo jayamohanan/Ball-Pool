@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using System.Linq;
-public class HeadScript : MonoBehaviour
+public class PlayerBallScript : MonoBehaviour
 {
     //public PlatformScript platformScript;//to set sound optimization on collision
     private GameManager gameManager;
@@ -11,9 +11,9 @@ public class HeadScript : MonoBehaviour
     //private CameraFollow cameraFollow;
     //private BottomTriggerScript bottomTriggerScript;
     private LevelGenerator levelGenerator;
-    public HeadManager headManager;
+    public PlayerBallControlScript playerBallControlScript;
 
-    public CharacterController controller;
+    public CharacterController controller;//
     public GameObject smallBall;
     private Rigidbody rb;
     private int smallBallLayer;
@@ -98,7 +98,7 @@ public class HeadScript : MonoBehaviour
                 {
                     checkLastZ = false;
                     MakeRb();
-                    headManager.stopMotion = true;
+                    playerBallControlScript.stopMotion = true;
                     trail.SetActive(false);
                 }
             }
@@ -275,6 +275,7 @@ public class HeadScript : MonoBehaviour
     int totalCount;
     public void SetPool(int[] maxValueArray, int mulCount, int[] maxValueColorIndexArray)//To be called from SetMul
     {
+        print("to "+Time.frameCount);
         //return;
         SmallBallData sb = new SmallBallData();
         GameObject ballInstantiated;
@@ -285,10 +286,31 @@ public class HeadScript : MonoBehaviour
         totalCount = levelGenerator.totalCount;
         //smallBallDataArray = new SmallBallData[totalCount];
         smallBallDataQueue = new Queue<SmallBallData>();
+        bool useSingleColor = GameDataClass.Instance.useSingleColor;
+
+        //BallColor bc = GameDataClass.Instance.ballColor;
+        //int colorIndex = 0;
+        //if (bc == BallColor.Blue)
+        //    colorIndex = 0;
+        //else if (bc == BallColor.Brown)
+        //    colorIndex = 1;
+        //else if (bc == BallColor.Green)
+        //    colorIndex = 2;
+        //else if (bc == BallColor.Violet)
+        //    colorIndex = 3;
+        //else if (bc == BallColor.Yellow)
+        //    colorIndex = 4;
+
+        //int colorIndex = GameDataClass.Instance.colorIndex;
+        if (useSingleColor)
+            setMulMats[0].color = GameDataClass.Instance.ballColor;
         for (int i = 0; i < totalCount; i++)
         {
             ballInstantiated = Instantiate(smallBall);
             mr = ballInstantiated.GetComponent<MeshRenderer>();
+            if(useSingleColor)
+            mr.sharedMaterial = setMulMats[0];
+            else
             mr.sharedMaterial = setMulMats[Random.Range(0, setMulMats.Length)];
             //sb.obj = ballInstantiated;
             //sb.rb = ballInstantiated.GetComponent<Rigidbody>();

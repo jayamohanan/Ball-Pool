@@ -10,6 +10,6 @@ public class Refs : MonoBehaviour
     public BigPitScript bigPitScript;
     public BottomTriggerScript bottomTriggerScript;
     public LevelGenerator levelGenerator;
-    public HeadManager headManager;
-    public HeadScript headScript;
+    public PlayerBallControlScript playerBallControlScript;
+    public PlayerBallScript playerBallScript;
 }

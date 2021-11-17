@@ -19,14 +19,14 @@ public class CameraCullScript : MonoBehaviour
     LevelGenerator levelGenerator;
     private BottomTriggerScript bottomTriggerScript;
     [SerializeField] private CameraFollow cameraFollow;
-    private HeadScript headScript;
+    private PlayerBallScript playerBallScript;
     [HideInInspector] public List<GameObject> culledObjs = new List<GameObject>();
     bool cull;
     private void Awake()
     {
         Refs refs = FindObjectOfType<Refs>(); 
         levelGenerator= refs.levelGenerator;
-        headScript= refs.headScript;
+        playerBallScript= refs.playerBallScript;
         bottomTriggerScript = refs.bottomTriggerScript;
 #if !UNITY_EDITOR
 test = false;
@@ -46,7 +46,7 @@ test = false;
         yield return null;
         yield return null;
         yield return null;
-        FindObjectOfType<HeadManager>().transform.position = FindObjectOfType<BigPitScript>().transform.position + Vector3.up * 10-Vector3.forward*6;
+        FindObjectOfType<PlayerBallControlScript>().transform.position = FindObjectOfType<BigPitScript>().transform.position + Vector3.up * 10-Vector3.forward*6;
         //EditorApplication.isPaused = true;
 
     }
@@ -147,7 +147,7 @@ test = false;
     }
     private IEnumerator ReposAll()
     {
-        //int minusPoints = headScript.minusPoints;
+        //int minusPoints = playerBallScript.minusPoints;
         int turnOnCount = culledObjs.Count;
         //if (minusPoints < culledObjs.Count)
         //{

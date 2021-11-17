@@ -13,10 +13,10 @@ public class CameraFollow : MonoBehaviour
     private Vector3 cullCubeRotfrontView = Vector3.up * -90;
 
     private LevelGenerator levelGenerator;
-    private HeadManager headManager;
+    private PlayerBallControlScript playerBallControlScript;
     public CameraCullScript cameraCullScript;
     private GameManager gameManager;
-    private HeadScript headScript;
+    private PlayerBallScript playerBallScript;
 
 
     public Transform target;
@@ -43,7 +43,7 @@ public class CameraFollow : MonoBehaviour
 
 
     //private LevelGenerator levelGenerator;
-    //private HeadManager headManager;
+    //private PlayerBallControlScript playerBallControlScript;
     public bool printSuccessType;
     private float initialY;
     public bool tweenMove;
@@ -59,8 +59,8 @@ public class CameraFollow : MonoBehaviour
         Refs refs = FindObjectOfType<Refs>();
         gameManager = refs.gameManager;
         levelGenerator = refs.levelGenerator;
-        headManager = refs.headManager;
-        headScript = refs.headScript;
+        playerBallControlScript = refs.playerBallControlScript;
+        playerBallScript = refs.playerBallScript;
 
         if (frontView)
         {
@@ -80,8 +80,8 @@ public class CameraFollow : MonoBehaviour
 
         gameManager.LevelStartedEvent += OnLevelLoaded;
         gameManager.LevelOverEvent += OnLevelOver;
-        headManager.PlayerMoved += OnPlayerMoved;
-        headScript.PathEndReached += MoveToFinalPosition;
+        playerBallControlScript.PlayerMoved += OnPlayerMoved;
+        playerBallScript.PathEndReached += MoveToFinalPosition;
 
 
     }
@@ -90,8 +90,8 @@ public class CameraFollow : MonoBehaviour
         gameManager.LevelStartedEvent -= OnLevelLoaded;
         gameManager.LevelOverEvent -= OnLevelOver;
         levelGenerator.SetBasket -= OnBasketSet;
-        headManager.PlayerMoved -= OnPlayerMoved;
-        headScript.PathEndReached -= MoveToFinalPosition;
+        playerBallControlScript.PlayerMoved -= OnPlayerMoved;
+        playerBallScript.PathEndReached -= MoveToFinalPosition;
 
     }
     Vector3 endPos;
@@ -131,7 +131,7 @@ public class CameraFollow : MonoBehaviour
         float tweenTime = 0;
         if (tweenMove)
         {
-            tweenTime = (zDist * 10) / (headManager.currentPlayerSpeed * 10f);
+            tweenTime = (zDist * 10) / (playerBallControlScript.currentPlayerSpeed * 10f);
             tweenId = LeanTween.move(gameObject, endPos, tweenTime).id;//
         }
         //if(tweenTime == 0)

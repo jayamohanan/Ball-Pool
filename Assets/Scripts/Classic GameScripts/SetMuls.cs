@@ -4,7 +4,7 @@
 //public class LevelGenerator : MonoBehaviour
 //{
 //    private GameManager gameManager;
-//    private HeadScript headScript;
+//    private PlayerBallScript playerBallScript;
 
 //    public bool greenRed;
 //    public bool straightOnly;
@@ -55,7 +55,7 @@
 //#endif
 //        Refs refs = FindObjectOfType<Refs>();
 //        gameManager = refs.gameManager;
-//        headScript = refs.headScript;
+//        playerBallScript = refs.playerBallScript;
 //        staticRoot = new GameObject("StaticRoot").transform;
 //        cameraFollow = FindObjectOfType<CameraFollow>();
 //#if !UNITY_EDITOR
@@ -96,7 +96,7 @@
 //        SetMulCount();
 //        CreateMuls();
 //        CalculatePositions();
-//        headScript.SetPool(maxValueArray, mulCount, maxValueColorIndexArray);
+//        playerBallScript.SetPool(maxValueArray, mulCount, maxValueColorIndexArray);
 //        SetBasket?.Invoke();
 //    }
 //    private int[] GenerateMaxValuesAndMultipliers(int count)

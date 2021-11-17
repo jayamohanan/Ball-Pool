@@ -10,12 +10,12 @@ public class BottomTriggerScript : MonoBehaviour
     private LevelGenerator levelGenerator;
     private bool firstBall;
     public event System.Action firstBallEvent;
-    private HeadScript headScript;
+    private PlayerBallScript playerBallScript;
     void Awake()
     {
         Refs refs = FindObjectOfType<Refs>();
         gameManager = refs.gameManager;
-        headScript = refs.headScript;//
+        playerBallScript = refs.playerBallScript;//
         levelGenerator = refs.levelGenerator;//
 
     }
@@ -60,7 +60,7 @@ public class BottomTriggerScript : MonoBehaviour
     private int soundPlayCycle = 5;
     public void ResetSoundOpt()
     {
-        int count = headScript.totalBallsFallen - collectedCount;
+        int count = playerBallScript.totalBallsFallen - collectedCount;
         soundPlayCycle = count / totalSoundCount;
         if (soundPlayCycle == 0)
             soundPlayCycle = 1;
