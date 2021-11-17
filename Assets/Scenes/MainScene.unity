@@ -155,6 +155,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5c613129855d75744b8c23fd64c1df73, type: 2}
   - {fileID: 2100000, guid: 3aa7b37e0eb86e149a8c2e2533b0a954, type: 2}
   - {fileID: 2100000, guid: a810fe8fcb72c8a4ab2ab43fecf0a736, type: 2}
+  useSingleColor: 1
+  ballColor: {r: 0, g: 0, b: 0, a: 0}
   lessFactor: 5
   localPositions: []
 --- !u!4 &34211086
@@ -1530,8 +1532,8 @@ MonoBehaviour:
   bigPitScript: {fileID: 1987963915}
   bottomTriggerScript: {fileID: 374189181}
   levelGenerator: {fileID: 2094794908}
-  headManager: {fileID: 305147036}
-  headScript: {fileID: 305147038}
+  playerBallControlScript: {fileID: 305147036}
+  playerBallScript: {fileID: 305147038}
 --- !u!4 &1618754690
 Transform:
   m_ObjectHideFlags: 0
@@ -2598,11 +2600,6 @@ PrefabInstance:
       propertyPath: cloud
       value: 
       objectReference: {fileID: 1070639192}
-    - target: {fileID: 6389101815442122936, guid: f5c6e003409866846ae70fe49e6c6ccf,
-        type: 3}
-      propertyPath: headManager
-      value: 
-      objectReference: {fileID: 305147036}
     - target: {fileID: 6389101815442122943, guid: f5c6e003409866846ae70fe49e6c6ccf,
         type: 3}
       propertyPath: m_LocalPosition.x

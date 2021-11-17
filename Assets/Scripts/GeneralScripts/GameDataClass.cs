@@ -6,7 +6,15 @@ using System.Linq;
 public class GameDataClass : MonoBehaviour
 {
     public static GameDataClass Instance;
+    [Tooltip("Material for collecting balls")]
     public Material[] mats;
+    [Tooltip("Check for Single Colored balls, also select color index below")]
+    public bool useSingleColor;
+    //public BallColor ballColor;
+    public Color ballColor;
+    //[Range(0,4)]
+    //[Tooltip("0:Blue, 1:Brown, 2:Green,3:Violet, 4:Yellow")]
+    //public int colorIndex;
     public int lessFactor = 5;
     void Awake()
     {
@@ -64,3 +72,12 @@ public class GameDataClass : MonoBehaviour
         //}
     }
 }
+public enum BallColor 
+{
+    Blue,
+    Brown,
+    Green,
+    Violet,
+    Yellow
+}
+

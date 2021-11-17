@@ -5,7 +5,7 @@ public class LevelGenerator : MonoBehaviour
 {
     public BallCount ballCount;
     private GameManager gameManager;
-    private HeadScript headScript;
+    private PlayerBallScript playerBallScript;
 
     [HideInInspector] public bool greenRed;
     [Tooltip("By defalut level arranges different types of gates, check this to make every gate simple, straight, two option gates. This is applicable for all gates except multipliers. Multipliers will always be moving one")]
@@ -57,7 +57,7 @@ public class LevelGenerator : MonoBehaviour
 #endif
         Refs refs = FindObjectOfType<Refs>();
         gameManager = refs.gameManager;
-        headScript = refs.headScript;
+        playerBallScript = refs.playerBallScript;
         staticRoot = new GameObject("StaticRoot").transform;
         cameraFollow = FindObjectOfType<CameraFollow>();
 #if !UNITY_EDITOR
@@ -98,7 +98,7 @@ public class LevelGenerator : MonoBehaviour
         SetMulCount();
         CreateMuls();
         CalculatePositions();
-        headScript.SetPool(maxValueArray, mulCount, maxValueColorIndexArray);
+        playerBallScript.SetPool(maxValueArray, mulCount, maxValueColorIndexArray);
         SetBasket?.Invoke();
     }
     private int[] GenerateMaxValuesAndMultipliers(int count)

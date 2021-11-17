@@ -37,7 +37,7 @@ public class BigPitScript : MonoBehaviour
     public Transform middleSlant;
 
     LevelGenerator levelGenerator;
-    HeadScript headScript;
+    PlayerBallScript playerBallScript;
     //private GameManager gameManager;
     public GameObject[] bottomPlates;
     public GameObject[] bottomPlateTriggers;
@@ -56,8 +56,8 @@ public class BigPitScript : MonoBehaviour
         Refs refs = FindObjectOfType<Refs>();
         gameManager = FindObjectOfType<GameManager>();
         levelGenerator = refs.levelGenerator;
-        headScript = refs.headScript;
-        //headScript.lessFactor = lessFactor;
+        playerBallScript = refs.playerBallScript;
+        //playerBallScript.lessFactor = lessFactor;
         //gameManager = refs.gameManager;
         bts = refs.bottomTriggerScript;
         cameraFollow = refs.cameraFollow;
@@ -98,13 +98,13 @@ public class BigPitScript : MonoBehaviour
         //if(index == 2)
         //{
 
-        //    WeightOverTrigger.totalBallsFallen = headScript.totalBallsFallen - lessFactor;
-        //    WeightOverTrigger.totalBallsFallen90pct = (int)((headScript.totalBallsFallen - lessFactor) * 0.9f);
+        //    WeightOverTrigger.totalBallsFallen = playerBallScript.totalBallsFallen - lessFactor;
+        //    WeightOverTrigger.totalBallsFallen90pct = (int)((playerBallScript.totalBallsFallen - lessFactor) * 0.9f);
         //}
         //else
         //{
-            WeightOverTrigger.totalBallsFallen = headScript.totalBallsFallen;
-            WeightOverTrigger.totalBallsFallen90pct = (int)((headScript.totalBallsFallen) * 0.9f);
+            WeightOverTrigger.totalBallsFallen = playerBallScript.totalBallsFallen;
+            WeightOverTrigger.totalBallsFallen90pct = (int)((playerBallScript.totalBallsFallen) * 0.9f);
         //}
        
 
@@ -230,7 +230,7 @@ public class BigPitScript : MonoBehaviour
         //scale = middleSlant.localScale;
         //middleSlant.localScale = new Vector3(scale.x, middleSlantLength, scale.z);
 
-        headScript.lastZ = bottom.transform.position.z;
+        playerBallScript.lastZ = bottom.transform.position.z;
     }
 
     private void AddRubberLayers()

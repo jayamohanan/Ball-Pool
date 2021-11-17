@@ -7,11 +7,11 @@ public class MultiplierLevelTrigger : MonoBehaviour
 {
     /*Vector3 left;
     int mask;
-    HeadScript headScript;
+    PlayerBallScript playerBallScript;
     BigPitScript bigPitScript;
     private void Awake()
     {
-        headScript = FindObjectOfType<HeadScript>();
+        playerBallScript = FindObjectOfType<PlayerBallScript>();
     }
     private void Start()
     {
@@ -19,11 +19,11 @@ public class MultiplierLevelTrigger : MonoBehaviour
     }
     private void OnEnable()
     {
-        headScript.PathEndReached += OnPathEndReached;
+        playerBallScript.PathEndReached += OnPathEndReached;
     }
     private void OnDisable()
     {
-        headScript.PathEndReached -= OnPathEndReached;
+        playerBallScript.PathEndReached -= OnPathEndReached;
     }
     private Transform t;
     private Transform pt;
