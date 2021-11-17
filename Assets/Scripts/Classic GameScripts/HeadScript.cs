@@ -289,7 +289,8 @@ public class HeadScript : MonoBehaviour
         {
             ballInstantiated = Instantiate(smallBall);
             mr = ballInstantiated.GetComponent<MeshRenderer>();
-            mr.sharedMaterial = setMulMats[Random.Range(0, setMulMats.Length)];
+            //mr.sharedMaterial = setMulMats[Random.Range(0, setMulMats.Length)];//Comment this line
+            mr.sharedMaterial = setMulMats[4];//Add this
             //sb.obj = ballInstantiated;
             //sb.rb = ballInstantiated.GetComponent<Rigidbody>();
             //sb.mr = mr;

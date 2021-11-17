@@ -2598,6 +2598,11 @@ PrefabInstance:
       propertyPath: cloud
       value: 
       objectReference: {fileID: 1070639192}
+    - target: {fileID: 6389101815442122936, guid: f5c6e003409866846ae70fe49e6c6ccf,
+        type: 3}
+      propertyPath: headManager
+      value: 
+      objectReference: {fileID: 305147036}
     - target: {fileID: 6389101815442122943, guid: f5c6e003409866846ae70fe49e6c6ccf,
         type: 3}
       propertyPath: m_LocalPosition.x
